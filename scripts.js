@@ -1,3 +1,10 @@
+//
+// scripts.js
+// This file contains JavaScript code that is run on the MIXIE KINZ website.
+// Authored by mixieculez and GitHub Copilot.
+// Last updated: 12/10/2024
+//
+
 document.addEventListener("DOMContentLoaded", function() {
     const footer = document.querySelector(".footer");
 
