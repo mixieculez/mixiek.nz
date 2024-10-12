@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MIXIE KINZ</title>
+    <style>
+        @font-face {
+            font-family: "Starborn";
+            src: url("fonts/Starborn.otf") format("opentype");
+        }
+        body {
+            background: #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .navbar {
+            position: fixed;
+            top: 6rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            background: transparent;
+            z-index: 2;
+        }
+        .nav-link {
+            color: #fff;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin: 0 2rem;
+            transition: color 0.3s;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInMoveDown 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+        }
+        .nav-link:hover {
+            color: #5E02E8;
+        }
+        .title {
+            position: fixed;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 1rem;
+            background: transparent;
+            z-index: 3;
+            font-family: "Starborn", Arial, Helvetica, sans-serif;
+            font-size: 2.5rem;
+            color: #fff;
+            text-transform: lowercase;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+        .title:hover {
+            color: #5E02E8;
+        }
+        .button-container {
+            position: absolute;
+            bottom: 4rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+            text-align: center;
+        }
+        .button {
+            background-color: black;
+            color: #fff;
+            font-family: "Starborn", Arial, sans-serif;
+            border: 2px solid #fff;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 0 #fff;
+            text-transform: uppercase;
+            margin-top: 1rem;
+            width: 8rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .button:hover {
+            background-color: #5E02E8;
+            color: black;
+            border-color: #5E02E8;
+            box-shadow: 0 0 15px #5E02E8;
+        }
+        .subscribe-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        .subscribe-input {
+            padding: 1rem;
+            font-size: 1.5rem;
+            border: 3px solid #fff;
+            outline: none;
+            color: #fff;
+            background-color: black;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            height: 3.5rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+            margin-right: -3px;
+        }
+        .subscribe-input::placeholder {
+            color: #fff;
+        }
+        .subscribe-input:hover {
+            border-color: #5E02E8;
+        }
+        .subscribe-button {
+            background-color: black;
+            color: #fff;
+            font-family: Helvetica, Arial, sans-serif;
+            border: 3px solid #fff;
+            padding: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+            width: 3.5rem;
+            height: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            text-transform: uppercase;
+        }
+        .subscribe-button:hover {
+            background-color: #5E02E8;
+            color: #fff;
+            border-color: #5E02E8;
+            box-shadow: 0 0 15px #5E02E8;
+        }
+        .subscribe-subtitle {
+            color: #fff;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+        }
+        .footer {
+            padding: 1rem;
+            font-size: 0.8rem;
+            z-index: 1;
+            font-family: Helvetica;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        #background-image {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            filter: blur(20px);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            margin: 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 4;
+            padding: 0.5rem;
+        }
+        .hamburger div {
+            width: 20px;
+            height: 2px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            border-radius: 2px;
+        }
+        .dropdown {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 6rem;
+            width: 100%;
+            z-index: 3;
+        }
+        .dropdown a {
+            padding: 1rem;
+            color: #fff;
+            text-decoration: none;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInMoveDownSmall 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+        }
+        .dropdown a:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        .dropdown a:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .dropdown a:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+        .dropdown a:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+        .dropdown a:hover {
+            color: #5E02E8;
+        }
+        .backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            z-index: 2;
+            display: none;
+            animation: fadeInOpacity 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+        }
+        @keyframes fadeInMoveDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInMoveDownSmall {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeOutMoveUpSmall {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+        @keyframes fadeInOpacity {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeOutOpacity {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+                top: 0.5rem;
+            }
+            .dropdown {
+                top: 7rem;
+                display: flex;
+                background-color: transparent;
+            }
+            .dropdown.fade-out {
+                animation: fadeOutMoveUpSmall 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+            }
+            .title {
+                font-size: 5rem;
+                text-transform: lowercase;
+                content: "a";
+                top: 0;
+            }
+        }
+        /* Hide footer initially */
+        .footer {
+            opacity: 0;
+            transition: opacity 0.6s;
+        }
+        .footer.visible {
+            opacity: 1;
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const dropdown = document.getElementById('dropdown');
+            const backdrop = document.getElementById('backdrop');
+            const navLinks = document.querySelectorAll('.dropdown a');
+            if (dropdown.style.display === 'flex') {
+                navLinks.forEach(link => link.classList.add('fade-out'));
+                dropdown.classList.add('fade-out');
+                setTimeout(() => {
+                    dropdown.style.display = 'none';
+                    backdrop.style.animation = 'fadeOutOpacity 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards';
+                    setTimeout(() => backdrop.style.display = 'none', 600);
+                    navLinks.forEach(link => link.classList.remove('fade-out'));
+                    dropdown.classList.remove('fade-out');
+                }, 600);
+            } else {
+                dropdown.style.display = 'flex';
+                backdrop.style.display = 'block';
+                backdrop.style.animation = 'fadeInOpacity 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards';
+                navLinks.forEach((link, index) => {
+                    link.style.animationDelay = `${0.1 * (index + 1)}s`;
+                    link.classList.remove('fade-out');
+                });
+            }
+        }
+
+        function updateTitle() {
+            const titleElement = document.querySelector('.title');
+            if (window.innerWidth < 768) {
+                titleElement.textContent = 'a';
+                titleElement.style.fontSize = '5rem';
+            } else {
+                titleElement.textContent = 'mixie kinz';
+                titleElement.style.fontSize = '2.5rem';
+            }
+        }
+
+        function closeDropdownOnLoad() {
+            const dropdown = document.getElementById('dropdown');
+            const backdrop = document.getElementById('backdrop');
+            dropdown.style.display = 'none';
+            backdrop.style.display = 'none';
+        }
+
+        window.addEventListener('resize', updateTitle);
+        window.addEventListener('load', () => {
+            updateTitle();
+            closeDropdownOnLoad();
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                const dropdown = document.getElementById('dropdown');
+                const backdrop = document.getElementById('backdrop');
+                dropdown.style.display = 'none';
+                backdrop.style.display = 'none';
+            }
+        });
+    </script>
+</head>
+<body>
+    <img id="background-image" src="assets/still.jpeg" alt="Background Image" />
+    <a href="index.html" class="title">mixie kinz</a>
+    <div class="navbar">
+        <a href="releases.html" class="nav-link" style="animation-delay: 0.1s;">Releases</a>
+        <a href="store.html" class="nav-link" style="animation-delay: 0.2s;">Store</a>
+        <a href="about.html" class="nav-link" style="animation-delay: 0.4s;">About</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+    </div>
+    <div id="dropdown" class="dropdown">
+        <a href="releases.html">Releases</a>
+        <a href="store.html">Store</a>
+        <a href="about.html">About</a>
+    </div>
+    <div id="backdrop" class="backdrop"></div>
+    <div class="button-container">
+        <div class="subscribe-container">
+            <div style="display: flex;">
+                <input type="email" class="subscribe-input" placeholder="Email Address" />
+                <button class="subscribe-button">&#8594;</button>
+            </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const footer = document.querySelector(".footer");
+
+            function checkFooterVisibility() {
+                const rect = footer.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    footer.classList.add("visible");
+                }
+            }
+
+            window.addEventListener("scroll", checkFooterVisibility);
+            checkFooterVisibility(); // Initial check in case the footer is already in view
+        });
+    </script>
+</body>
+</html> </div>
+        <!-- Assuming this is your "Contact" element -->
+        <a href="mailto:contact@mixiek.nz" id="contact-link" class="button">Contact</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+    </div>
+    <div id="dropdown" class="dropdown">
+        <a href="releases.html">Releases</a>
+        <a href="store.html">Store</a>
+        <a href="about.html">About</a>
+    </div>
+    <div id="backdrop" class="backdrop"></div>
+    <div class="button-container">
+        <div class="subscribe-container">
+            <div style="display: flex;">
+                <input type="email" class="subscribe-input" placeholder="Email Address" />
+                <button class="subscribe-button">&#8594;</button>
+            </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const footer = document.querySelector(".footer");
+
+            function checkFooterVisibility() {
+                const rect = footer.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    footer.classList.add("visible");
+                }
+            }
+
+            window.addEventListener("scroll", checkFooterVisibility);
+            checkFooterVisibility(); // Initial check in case the footer is already in view
+        });
+    </script>
+</body>
+</html> </div>
+        <!-- Assuming this is your "Contact" element -->
+        <a href="mailto:contact@mixiek.nz" id="contact-link" class="button">Contact</a>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2024 MIXIE KINZ</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
