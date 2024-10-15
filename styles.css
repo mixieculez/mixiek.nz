@@ -173,14 +173,13 @@ body {
     padding: 1rem;
     font-size: 0.8rem;
     z-index: 1;
-    font-family: Helvetica;
+    font-family: Helvetica, sans-serif;
     color: #fff;
     position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center;
     text-transform: uppercase;
-    transition: color 0.3s;
     opacity: 0;
     transition: opacity 0.6s;
 }
@@ -332,7 +331,6 @@ body {
     }
     .dropdown {
         top: 7rem;
-        display: flex;
         background-color: transparent;
     }
     .dropdown.fade-out {

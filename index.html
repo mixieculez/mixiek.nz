@@ -1,10 +1,3 @@
-<!--
--- index.html
--- This file contains HTML, CSS, and JS code that is run on the MIXIE KINZ website.
--- Authored by mixieculez and GitHub Copilot.
--- Last updated: 12/10/2024
--->
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -73,89 +66,36 @@
     </script>
 </head>
 <body>
-    <img id="background-image" src="assets/still.jpeg" alt="Background Image" />
-    <a href="index.html" class="title">mixie kinz</a>
-    <div class="navbar">
-        <a href="releases.html" class="nav-link" style="animation-delay: 0.1s;">Releases</a>
-        <a href="store.html" class="nav-link" style="animation-delay: 0.2s;">Store</a>
-        <a href="about.html" class="nav-link" style="animation-delay: 0.4s;">About</a>
+<img alt="Background Image" id="background-image" src="assets/still.jpeg"/>
+<a class="title" href="index.html">mixie kinz</a>
+<div class="navbar">
+    <a class="nav-link" href="releases.html" style="animation-delay: 0.1s;">Releases</a>
+    <a class="nav-link" href="store.html" style="animation-delay: 0.2s;">Store</a>
+    <a class="nav-link" href="about.html" style="animation-delay: 0.4s;">About</a>
+</div>
+<div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+</div>
+<div class="dropdown" id="dropdown">
+    <a href="releases.html">Releases</a>
+    <a href="store.html">Store</a>
+    <a href="about.html">About</a>
+</div>
+<div class="backdrop" id="backdrop"></div>
+<div class="button-container">
+    <div class="subscribe-container">
+        <p class="subscribe-subtitle">ONLINE CORRESPONDENCE FROM MIXIE KINZ</p>
+        <div style="display: flex;">
+            <input aria-label="Email Address" class="subscribe-input" placeholder="Email Address" type="email"/>
+            <button class="subscribe-button">&#8594;</button>
+        </div>
     </div>
-    <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-    </div>
-    <div id="dropdown" class="dropdown">
-        <a href="releases.html">Releases</a>
-        <a href="store.html">Store</a>
-        <a href="about.html">About</a>
-    </div>
-    <div id="backdrop" class="backdrop"></div>
-    <div class="button-container">
-        <div class="subscribe-container">
-            <p class="subscribe-subtitle">ONLINE CORRESPONDENCE FROM MIXIE KINZ</p>
-            <div style="display: flex;">
-                <input type="email" class="subscribe-input" placeholder="Email Address" />
-                <button class="subscribe-button">&#8594;</button>
-            </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const footer = document.querySelector(".footer");
-
-            function checkFooterVisibility() {
-                const rect = footer.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                    footer.classList.add("visible");
-                }
-            }
-
-            window.addEventListener("scroll", checkFooterVisibility);
-            checkFooterVisibility(); // Initial check in case the footer is already in view
-        });
-    </script>
-</body>
-</html> </div>
-        <!-- Assuming this is your "Contact" element -->
-        <a href="mailto:contact@mixiek.nz" id="contact-link" class="button">Contact</a>
-    </div>
-    <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-    </div>
-    <div id="dropdown" class="dropdown">
-        <a href="releases.html">Releases</a>
-        <a href="store.html">Store</a>
-        <a href="about.html">About</a>
-    </div>
-    <div id="backdrop" class="backdrop"></div>
-    <div class="button-container">
-        <div class="subscribe-container">
-            <div style="display: flex;">
-                <input type="email" class="subscribe-input" placeholder="Email Address" />
-                <button class="subscribe-button">&#8594;</button>
-            </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const footer = document.querySelector(".footer");
-
-            function checkFooterVisibility() {
-                const rect = footer.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                    footer.classList.add("visible");
-                }
-            }
-
-            window.addEventListener("scroll", checkFooterVisibility);
-            checkFooterVisibility(); // Initial check in case the footer is already in view
-        });
-    </script>
-</body>
-</html> </div>
-        <!-- Assuming this is your "Contact" element -->
-        <a href="mailto:contact@mixiek.nz" id="contact-link" class="button">Contact</a>
-    </div>
-    <footer class="footer">
-        <p>&copy; 2024 MIXIE KINZ</p>
-    </footer>
-    <script src="scripts.js"></script>
+    <a class="button" href="mailto:contact@mixiek.nz" id="contact-link">Contact</a>
+</div>
+<footer class="footer">
+    <p>&copy; 2024 MIXIE KINZ</p>
+</footer>
+<script src="scripts.js"></script>
 </body>
 </html>

@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         const randomIndex = Math.floor(Math.random() * audioFiles.length);
         currentAudio = new Audio(audioFiles[randomIndex]);
-        currentAudio.play();
+        currentAudio.play().catch(error => console.error('Audio playback failed:', error));
     }
 
     const elements = document.querySelectorAll('.nav-link, .button, .title, .subscribe-button');
