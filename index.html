@@ -4,66 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MIXIE KINZ</title>
-    <link href="css/styles.css" rel="stylesheet"/>
-    <script>
-        function toggleMenu() {
-            const dropdown = document.getElementById('dropdown');
-            const backdrop = document.getElementById('backdrop');
-            const navLinks = document.querySelectorAll('.dropdown a');
-            if (dropdown.style.display === 'flex') {
-                navLinks.forEach(link => link.classList.add('fade-out'));
-                dropdown.classList.add('fade-out');
-                setTimeout(() => {
-                    dropdown.style.display = 'none';
-                    backdrop.style.animation = 'fadeOutOpacity 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards';
-                    setTimeout(() => backdrop.style.display = 'none', 600);
-                    navLinks.forEach(link => link.classList.remove('fade-out'));
-                    dropdown.classList.remove('fade-out');
-                }, 600);
-            } else {
-                dropdown.style.display = 'flex';
-                backdrop.style.display = 'block';
-                backdrop.style.animation = 'fadeInOpacity 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards';
-                navLinks.forEach((link, index) => {
-                    link.style.animationDelay = `${0.1 * (index + 1)}s`;
-                    link.classList.remove('fade-out');
-                });
-            }
-        }
-
-        function updateTitle() {
-            const titleElement = document.querySelector('.title');
-            if (window.innerWidth < 768) {
-                titleElement.textContent = 'a';
-                titleElement.style.fontSize = '5rem';
-            } else {
-                titleElement.textContent = 'mixie kinz';
-                titleElement.style.fontSize = '2.5rem';
-            }
-        }
-
-        function closeDropdownOnLoad() {
-            const dropdown = document.getElementById('dropdown');
-            const backdrop = document.getElementById('backdrop');
-            dropdown.style.display = 'none';
-            backdrop.style.display = 'none';
-        }
-
-        window.addEventListener('resize', updateTitle);
-        window.addEventListener('load', () => {
-            updateTitle();
-            closeDropdownOnLoad();
-        });
-
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                const dropdown = document.getElementById('dropdown');
-                const backdrop = document.getElementById('backdrop');
-                dropdown.style.display = 'none';
-                backdrop.style.display = 'none';
-            }
-        });
-    </script>
+    <link href="css/index.css" rel="stylesheet"/>
 </head>
 <body>
 <img alt="Background Image" id="background-image" src="assets/images/still.jpeg"/>
@@ -96,6 +37,6 @@
 <footer class="footer">
     <p>&copy; 2024 MIXIE KINZ</p>
 </footer>
-<script src="js/scripts.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

@@ -2,9 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>MIXIE KINZ — Releases</title>
+    <link href="css/releases.css" rel="stylesheet"/>
+    <script>
+        function toggleMenu() {
+            const dropdown = document.getElementById('dropdown');
+            const backdrop = document.getElementById('backdrop');
+            const navLinks = document.querySelectorAll('.dropdown a');
+            if (dropdown.style.display === 'flex') {
+                navLinks.forEach(link => link.classList.add('fade-out'));
+                dropdown.classList.add('fade-out');
+                setTimeout(() => {
+                    dropdown.style.display = 'none';
+                    backdrop.style.animation = 'fadeOutOpacity 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards';
+                    setTimeout(() => backdrop.style.display = 'none', 600);
+                    navLinks.forEach(link => link.classList.remove('fade-out'));
+                    dropdown.classList.remove('fade-out');
+                }, 600);
+            } else {
+                dropdown.style.display = 'flex';
+                backdrop.style.display = 'block';
+                backdrop.style.animation = 'fadeInOpacity 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards';
+                navLinks.forEach((link, index) => {
+                    link.style.animationDelay = `${0.1 * (index + 1)}s`;
+                    link.classList.remove('fade-out');
+                });
+            }
+        }
+
+        function updateTitle() {
+            const titleElement = document.querySelector('.title');
+            if (window.innerWidth < 768) {
+                titleElement.textContent = 'a';
+                titleElement.style.fontSize = '5rem';
+            } else {
+                titleElement.textContent = 'mixie kinz';
+                titleElement.style.fontSize = '2.5rem';
+            }
+        }
+
+        function closeDropdownOnLoad() {
+            const dropdown = document.getElementById('dropdown');
+            const backdrop = document.getElementById('backdrop');
+            dropdown.style.display = 'none';
+            backdrop.style.display = 'none';
+        }
+
+        window.addEventListener('resize', updateTitle);
+        window.addEventListener('load', () => {
+            updateTitle();
+            closeDropdownOnLoad();
+        });
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                const dropdown = document.getElementById('dropdown');
+                const backdrop = document.getElementById('backdrop');
+                dropdown.style.display = 'none';
+                backdrop.style.display = 'none';
+            }
+        });
+    </script>
 </head>
 <body>
-
+<a class="title" href="index.html">mixie kinz</a>
+<div class="navbar">
+    <a class="nav-link" href="releases.html" style="animation-delay: 0.1s">Releases</a>
+    <a class="nav-link" href="store.html" style="animation-delay: 0.3s">Store</a>
+    <a class="nav-link" href="about.html" style="animation-delay: 0.2s">About</a>
+</div>
+<div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+</div>
+<div class="dropdown" id="dropdown">
+    <a href="releases.html">Releases</a>
+    <a href="store.html">Store</a>
+    <a href="about.html">About</a>
+</div>
+<div class="button-container">
+    <a class="button" href="mailto:contact@mixiek.nz" id="contact-link">Contact</a>
+</div>
+<footer class="footer">
+    <p>&copy; 2024 MIXIE KINZ</p>
+</footer>
+<script src="js/releases.js"></script>
 </body>
 </html>

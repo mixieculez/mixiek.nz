@@ -1,9 +1,16 @@
 /*
-/ styles.css
-/ This file contains CSS that is run on the MIXIE KINZ website.
-/ Authored by mixieculez and GitHub Copilot.
-/ Last updated: 12/10/2024
+    * index.css
+    * This file contains CSS that is run on the MIXIE KINZ home page.
+    * Authored by mixieculez and GitHub Copilot.
+    * Last updated: 15/10/2024
 */
+:root {
+    --font-family-brand: "Starborn", sans-serif;
+    --font-family-sans: Helvetica, Arial, sans-serif;
+    --color-primary: #5E02E8;
+    --color-background: #000;
+    --color-text: #fff;
+}
 
 @font-face {
     font-family: "Starborn";
@@ -11,7 +18,7 @@
 }
 
 body {
-    background: #000;
+    background: var(--color-background);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -34,8 +41,8 @@ body {
 }
 
 .nav-link {
-    color: #fff;
-    font-family: Helvetica, Arial, sans-serif;
+    color: var(--color-text);
+    font-family: var(--font-family-sans), sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -48,7 +55,7 @@ body {
 }
 
 .nav-link:hover {
-    color: #5E02E8;
+    color: var(--color-primary);
 }
 
 .title {
@@ -59,16 +66,15 @@ body {
     padding: 1rem;
     background: transparent;
     z-index: 3;
-    font-family: "Starborn", Arial, Helvetica, sans-serif;
-    font-size: 2.5rem;
-    color: #fff;
+    font-family: var(--font-family-brand), sans-serif;
+    color: var(--color-text);
     text-transform: lowercase;
     transition: color 0.3s;
     text-decoration: none;
 }
 
 .title:hover {
-    color: #5E02E8;
+    color: var(--color-primary);
 }
 
 .button-container {
@@ -84,8 +90,8 @@ body {
 
 .button {
     background-color: black;
-    color: #fff;
-    font-family: "Starborn", Arial, sans-serif;
+    color: var(--color-text);
+    font-family: var(--font-family-brand), sans-serif;
     border: 0;
     padding: 0.5rem;
     font-size: 0.8rem;
@@ -102,7 +108,7 @@ body {
 }
 
 .button:hover {
-    color: #5E02E8;
+    color: var(--color-primary);
 }
 
 .subscribe-container {
@@ -117,7 +123,7 @@ body {
     font-size: 1.5rem;
     border: 3px solid #fff;
     outline: none;
-    color: #fff;
+    color: var(--color-text);
     background-color: black;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
@@ -133,13 +139,13 @@ body {
 }
 
 .subscribe-input:hover {
-    border-color: #5E02E8;
+    border-color: var(--color-primary);
 }
 
 .subscribe-button {
     background-color: black;
-    color: #fff;
-    font-family: Helvetica, Arial, sans-serif;
+    color: var(--color-text);
+    font-family: var(--font-family-sans), sans-serif;
     border: 3px solid #fff;
     padding: 0.5rem;
     font-size: 1rem;
@@ -155,15 +161,15 @@ body {
 }
 
 .subscribe-button:hover {
-    background-color: #5E02E8;
+    background-color: var(--color-primary);
     color: #fff;
-    border-color: #5E02E8;
-    box-shadow: 0 0 15px #5E02E8;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px var(--color-primary);
 }
 
 .subscribe-subtitle {
-    color: #fff;
-    font-family: Helvetica, Arial, sans-serif;
+    color: var(--color-text);
+    font-family: var(--font-family-sans), sans-serif;
     font-size: 0.8rem;
     margin-top: 0.5rem;
     text-transform: uppercase;
@@ -174,7 +180,7 @@ body {
     font-size: 0.8rem;
     z-index: 1;
     font-family: Helvetica, sans-serif;
-    color: #fff;
+    color: var(--color-text);
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -214,7 +220,7 @@ body {
 .hamburger div {
     width: 20px;
     height: 2px;
-    background-color: #fff;
+    background-color: var(--color-text);
     margin: 5px 0;
     transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     border-radius: 2px;
@@ -233,7 +239,7 @@ body {
 
 .dropdown a {
     padding: 1rem;
-    color: #fff;
+    color: var(--color-text);
     text-decoration: none;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 1.5rem;
@@ -262,7 +268,7 @@ body {
 }
 
 .dropdown a:hover {
-    color: #5E02E8;
+    color: var(--color-primary);
 }
 
 .backdrop {

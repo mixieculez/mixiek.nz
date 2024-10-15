@@ -1,0 +1,275 @@
+/*
+    * releases.css
+    * This file contains CSS that is run on the MIXIE KINZ releases page.
+    * Authored by mixieculez and GitHub Copilot.
+    * Last updated: 15/10/2024
+*/
+
+@font-face {
+    font-family: "Starborn";
+    src: url("../assets/fonts/Starborn.otf") format("opentype");
+}
+
+:root {
+    --primary-color: #5E02E8;
+    --background-color: #000;
+    --text-color: #fff;
+    --font-family-sans: Helvetica, Arial, sans-serif;
+    --font-family-brand: "Starborn", sans-serif;
+}
+
+body {
+    background: var(--background-color);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+.navbar {
+    position: fixed;
+    top: 6rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    background: transparent;
+    z-index: 2;
+}
+
+.nav-link {
+    color: var(--text-color);
+    font-family: var(--font-family-sans), sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 0 2rem;
+    transition: color 0.3s;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInMoveDown 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.title {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem;
+    background: transparent;
+    font-family: var(--font-family-brand), sans-serif;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    text-transform: lowercase;
+    transition: color 0.3s;
+    text-decoration: none;
+    z-index: 2;
+}
+
+.title:hover {
+    color: var(--primary-color);
+}
+
+.title:hover {
+    color: #5E02E8;
+}
+
+.button-container {
+    position: absolute;
+    bottom: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    text-align: center;
+}
+
+.button {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family-brand), Arial, sans-serif;
+    border: 0;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 0 var(--text-color);
+    text-transform: uppercase;
+    margin-top: 1rem;
+    width: 8rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button:hover {
+    color: var(--primary-color);
+}
+
+.footer {
+    padding: 1rem;
+    font-size: 0.8rem;
+    z-index: 10; /* Ensure it is above other elements */
+    font-family: var(--font-family-sans), sans-serif;
+    color: var(--text-color);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: var(--background-color); /* Ensure it has a background color */
+    opacity: 1; /* Make it visible */
+    transition: opacity 0.6s;
+}
+
+.footer.visible {
+    opacity: 1;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    padding: 0.5rem;
+}
+
+.hamburger div {
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    border-radius: 2px;
+}
+
+.dropdown {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 6rem;
+    width: 100%;
+    z-index: 3;
+}
+
+.dropdown a {
+    padding: 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: var(--font-family-sans), sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInMoveDownSmall 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+.dropdown a:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.dropdown a:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dropdown a:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.dropdown a:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.dropdown a:hover {
+    color: var(--primary-color);
+}
+
+@keyframes fadeInMoveDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInMoveDownSmall {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOutMoveUpSmall {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeInOpacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutOpacity {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+        top: 0.5rem;
+    }
+
+    .dropdown {
+        top: 7rem;
+        background-color: transparent;
+    }
+
+    .dropdown.fade-out {
+        animation: fadeOutMoveUpSmall 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+    }
+
+    .title {
+        font-size: 5rem;
+        text-transform: lowercase;
+        content: "a";
+        top: 0;
+    }
+}
