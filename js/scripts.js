@@ -28,22 +28,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Hover sound functionality
     const audioFiles = [
-        'sounds/1.mp3',
-        'sounds/2.mp3',
-        'sounds/3.mp3',
-        'sounds/4.mp3',
-        'sounds/5.mp3',
-        'sounds/6.mp3',
-        'sounds/7.mp3',
-        'sounds/8.mp3',
-        'sounds/9.mp3',
-        'sounds/10.mp3',
-        'sounds/11.mp3',
-        'sounds/12.mp3',
-        'sounds/13.mp3',
-        'sounds/14.mp3',
-        'sounds/15.mp3',
-        'sounds/16.mp3'
+        'assets/sounds/1.mp3',
+        'assets/sounds/2.mp3',
+        'assets/sounds/3.mp3',
+        'assets/sounds/4.mp3',
+        'assets/sounds/5.mp3',
+        'assets/sounds/6.mp3',
+        'assets/sounds/7.mp3',
+        'assets/sounds/8.mp3',
+        'assets/sounds/9.mp3',
+        'assets/sounds/10.mp3',
+        'assets/sounds/11.mp3',
+        'assets/sounds/12.mp3',
+        'assets/sounds/13.mp3',
+        'assets/sounds/14.mp3',
+        'assets/sounds/15.mp3',
+        'assets/sounds/16.mp3'
     ];
 
     let currentAudio = null;

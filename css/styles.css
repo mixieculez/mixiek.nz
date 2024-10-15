@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: "Starborn";
-    src: url("fonts/Starborn.otf") format("opentype");
+    src: url("../assets/fonts/Starborn.otf") format("opentype");
 }
 
 body {
